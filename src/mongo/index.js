@@ -2,7 +2,7 @@ import mongo from 'mongodb';
 
 let DatabaseConnection = null;
 const MongoClient = mongo.MongoClient;
-const url = `mongodb://localhost:27017/devents`;
+const url = `mongodb://localhost:27017/devents`; // TODO: Migrate to env
 // mongodb://[username:password@]host1[:port1][,host2[:port2],...[,hostN[:portN]]][/[database][?options]]
 
 

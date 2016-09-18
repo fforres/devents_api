@@ -6,9 +6,9 @@ API for the devents site.
 
 ## TODO:
 
+- [x] ~~Fix non appearing sparameters on queries~~
 - [ ] **_Add Events Definition_**
 - [ ] Fix environment
-- [ ] Fix non appearing parameters on queries
 - [ ] Add relation for 'Events'
 - [ ] Add more queries
 

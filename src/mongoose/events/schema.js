@@ -46,7 +46,7 @@ const eventsSchema = new Schema({
     lat: {
       type: Number,
     },
-    long: {
+    lon: {
       type: Number,
     },
     city: {

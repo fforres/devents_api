@@ -9,10 +9,10 @@ export const groupType = new GraphQLObjectType({
       description: 'Group\'s Name',
     },
     lat: {
-      type: GraphQLInt,
+      type: GraphQLString,
       description: 'Group\'s latitude',
     },
-    long: {
+    lon: {
       type: GraphQLString,
       description: 'Group\'s longitude',
     },
@@ -51,6 +51,7 @@ export const groupType = new GraphQLObjectType({
     id: {
       type: GraphQLString,
       description: 'Group\'s unique uuid',
+      resolve: data => data._id,
     },
   }),
 });
