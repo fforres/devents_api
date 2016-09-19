@@ -17,11 +17,11 @@ export const venueType = new GraphQLObjectType({
       description: 'Event\'s venue name',
     },
     lat: {
-      type: GraphQLInt,
+      type: GraphQLString,
       description: 'Event\'s venue location, latitude',
     },
     lon: {
-      type: GraphQLInt,
+      type: GraphQLString,
       description: 'Event\'s venue location, longitude',
     },
     city: {
