@@ -3,8 +3,15 @@ import {
   GraphQLObjectType,
 } from 'graphql';
 import {
-  groupById, groups,
+  groupById,
+  groups,
 } from '../definitions/groups';
+import {
+  eventById,
+  eventsByGroup,
+  events,
+} from '../definitions/events';
+
 
 const schema = new GraphQLSchema({
   query: new GraphQLObjectType({
@@ -12,6 +19,9 @@ const schema = new GraphQLSchema({
     fields: () => ({
       groupById,
       groups,
+      eventById,
+      eventsByGroup,
+      events,
     }),
   }),
 });

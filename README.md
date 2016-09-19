@@ -6,15 +6,14 @@ API for the devents site.
 
 ## TODO:
 
-- [x] ~~Fix non appearing sparameters on queries~~
-- [ ] **_Add Events Definition_**
+- [x] ~~Fix non appearing parameters on queries~~
+- [x] ~~ **_Add Events Definition_** ~~
+- [x] ~~ Add relation for 'Events' ~~
+- [x] ~~ Add more queries ~~
+
+--------------------------------------------------------------------------------
+
 - [ ] Fix environment
-- [ ] Add relation for 'Events'
-- [ ] Add more queries
-
-
------
-
 - [ ] Add tests
 - [ ] Test mongoose implementation (Crawler already has mongoose schemas)
 - [ ] Test <https://github.com/RisingStack/graffiti-mongoose> (Crawler already has mongoose schemas)

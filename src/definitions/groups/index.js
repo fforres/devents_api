@@ -1,1 +1,2 @@
-export { groupById, groups } from './query'
+export { groupById, groups } from './query';
+export { groupType, groupListType } from './type';
