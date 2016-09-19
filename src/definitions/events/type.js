@@ -1,5 +1,6 @@
 import { GraphQLString, GraphQLObjectType, GraphQLInt, GraphQLList, GraphQLFloat } from 'graphql';
 import { venueType } from '../venues';
+import { groupType, getGroupById } from '../groups';
 
 export const eventType = new GraphQLObjectType({
   name: 'Event',
@@ -50,8 +51,9 @@ export const eventType = new GraphQLObjectType({
       description: 'UTC Offset for the event starting time',
     },
     group: {
-      type: GraphQLString,
+      type: groupType,
       description: 'UTC Offset for the event starting time',
+      resolve: data => getGroupById(data.group),
     },
     venue: {
       type: venueType,
