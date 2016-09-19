@@ -13,6 +13,10 @@ export const eventType = new GraphQLObjectType({
       type: GraphQLString,
       description: 'Event\'s Name',
     },
+    plain_text_description: {
+      type: GraphQLString,
+      description: 'Event\'s text description in plain text (No tags)',
+    },
     assistants_limit: {
       type: GraphQLInt,
       description: 'Event current rsvp limit',
@@ -24,6 +28,14 @@ export const eventType = new GraphQLObjectType({
     assistants_waitlist: {
       type: GraphQLInt,
       description: 'Event current rsvp waiting list',
+    },
+    fee: {
+      type: GraphQLString,
+      description: 'Event\'s fee',
+    },
+    link: {
+      type: GraphQLString,
+      description: 'Event\'s reference link',
     },
     time: {
       type: GraphQLFloat,
