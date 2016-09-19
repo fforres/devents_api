@@ -5,7 +5,7 @@ import { getGroupById, getGroups } from './model';
 
 export const groupById = {
   name: 'getGroupById',
-  description: 'Returns one cowork by ID',
+  description: 'Returns one group by ID',
   type: groupType,
   args: {
     id: {
