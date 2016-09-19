@@ -24,11 +24,6 @@ export const getEventByGroupId = id => new Promise((resolve, reject) => {
 
 
 export const getEvents = () => new Promise((resolve, reject) => {
-  console.log({
-    time: {
-      $gt: Date.now(),
-    },
-  });
   getConnection()
     .collection('events')
     .find({
