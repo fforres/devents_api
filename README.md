@@ -14,6 +14,8 @@ API for the devents site.
 --------------------------------------------------------------------------------
 
 - [ ] Fix environment
+- [ ] Add CI deploy
+- [ ] Add CI Testing
 - [ ] Add tests
 - [ ] Test mongoose implementation (Crawler already has mongoose schemas)
 - [ ] Test <https://github.com/RisingStack/graffiti-mongoose> (Crawler already has mongoose schemas)
