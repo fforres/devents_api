@@ -17,6 +17,10 @@ export const eventType = new GraphQLObjectType({
       type: GraphQLString,
       description: 'Event\'s text description in plain text (No tags)',
     },
+    name: {
+      type: GraphQLString,
+      description: 'Event\'s given name',
+    },
     assistants_limit: {
       type: GraphQLInt,
       description: 'Event current rsvp limit',
