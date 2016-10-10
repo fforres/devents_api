@@ -1,0 +1,32 @@
+sudo: false
+language: node_js
+cache:
+  directories:
+  - node_modules
+node_js:
+- 6
+addons:
+  ssh_known_hosts: api.devents.noders.com
+before_deploy:
+- mv $TRAVIS_BUILD_DIR/env.prod.json $TRAVIS_BUILD_DIR/src/env/env.prod.json
+- mv $TRAVIS_BUILD_DIR/env.prod.json $TRAVIS_BUILD_DIR/build/env/env.prod.json
+- eval "$(ssh-agent -s)"
+- mv $TRAVIS_BUILD_DIR/devents_prod_api_key /tmp/devents_prod_api_key
+- chmod 600 /tmp/devents_prod_api_key
+- ssh-add /tmp/devents_prod_api_key
+deploy:
+  provider: script
+  skip_cleanup: true
+  script: npm run build && npm run deploy
+  on:
+    branch: master
+before_install:
+- openssl aes-256-cbc -K $encrypted_5ae61cbbaac1_key -iv $encrypted_5ae61cbbaac1_iv
+  -in secrets.tar.enc -out secrets.tar -d
+after_deploy:
+- rm devents_prod_api_key
+after_script:
+- echo "--------- DEPLOY DONE! ---------"
+dd:
+- openssl aes-256-cbc -K $encrypted_5ae61cbbaac1_key -iv $encrypted_5ae61cbbaac1_iv
+  -in env.prod.json.enc -out ./src/env/env.prod.json -d
