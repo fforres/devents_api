@@ -9,6 +9,7 @@ addons:
   ssh_known_hosts: api.devents.noders.com
 before_deploy:
 - tar -xvf secrets.tar
+- ls -al
 - mv $TRAVIS_BUILD_DIR/env.prod.json $TRAVIS_BUILD_DIR/src/env/env.prod.json
 - mv $TRAVIS_BUILD_DIR/env.prod.json $TRAVIS_BUILD_DIR/build/env/env.prod.json
 - eval "$(ssh-agent -s)"
