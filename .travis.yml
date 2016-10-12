@@ -21,6 +21,8 @@ before_deploy:
 - chmod 600 /tmp/devents_prod_api_key
 - ssh-add /tmp/devents_prod_api_key
 - tar czf /tmp/deploy.tar.gz $TRAVIS_BUILD_DIR
+- mv /tmp/deploy.tar.gz $TRAVIS_BUILD_DIR/deploy.tar.gz
+- ls -al $TRAVIS_BUILD_DIR
 - ls -al /tmp
 deploy:
   provider: script
