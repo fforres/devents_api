@@ -22,7 +22,6 @@ before_deploy:
 - ssh-add /tmp/devents_prod_api_key
 # Packaging
 - echo "------- PACKAGING -------"
-- rm -rf node_modules
 - tar --exclude='./node_modules' -czf /tmp/deploy.tar.gz $TRAVIS_BUILD_DIR
 - mv /tmp/deploy.tar.gz $TRAVIS_BUILD_DIR/deploy.tar.gz
 - ls -al $TRAVIS_BUILD_DIR
