@@ -16,7 +16,7 @@ plan.target('production', [
 // run commands on localhost
 plan.local((local) => {
   local.log('Copy files to remote hosts');
-  const filesToCopy = [`${process.env()}/deploy.tar`];
+  const filesToCopy = [`${process.cwd()}/deploy.tar`];
   // rsync files to all the target's remote hosts
   local.transfer(filesToCopy, `/tmp/${tmpDir}`);
 });
