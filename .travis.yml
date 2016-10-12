@@ -15,12 +15,14 @@ before_deploy:
 - echo $TRAVIS_BUILD_DIR
 - npm run build
 - mv $TRAVIS_BUILD_DIR/env.prod.json $TRAVIS_BUILD_DIR/build/env/env.prod.json
-- tar czf deploy.tar.gz $TRAVIS_BUILD_DIR/build
-- ls -al
 - eval "$(ssh-agent -s)"
 - mv $TRAVIS_BUILD_DIR/devents_prod_api_key /tmp/devents_prod_api_key
 - chmod 600 /tmp/devents_prod_api_key
 - ssh-add /tmp/devents_prod_api_key
+- rm $TRAVIS_BUILD_DIR/devents_prod_api_key
+- rm $TRAVIS_BUILD_DIR/devents_prod_api_key.pub
+- tar czf /tmp/deploy.tar.gz $TRAVIS_BUILD_DIR
+- ls -al /tmp
 deploy:
   provider: script
   skip_cleanup: true
