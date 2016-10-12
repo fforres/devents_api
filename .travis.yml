@@ -10,13 +10,12 @@ addons:
 before_install:
 - openssl aes-256-cbc -K $encrypted_5ae61cbbaac1_key -iv $encrypted_5ae61cbbaac1_iv
   -in secrets.tar.enc -out secrets.tar -d
-after_install:
+before_deploy:
 - tar -xvf secrets.tar
 - ls -al
 - npm run build
 - mv $TRAVIS_BUILD_DIR/env.prod.json $TRAVIS_BUILD_DIR/src/env/env.prod.json
 - mv $TRAVIS_BUILD_DIR/env.prod.json $TRAVIS_BUILD_DIR/build/env/env.prod.json
-before_deploy:
 - eval "$(ssh-agent -s)"
 - mv $TRAVIS_BUILD_DIR/devents_prod_api_key /tmp/devents_prod_api_key
 - chmod 600 /tmp/devents_prod_api_key
