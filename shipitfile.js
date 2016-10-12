@@ -1,9 +1,3 @@
-/* eslint
-  no-var:0,
-  prefer-template:0,
-  func-names:0,
-  prefer-arrow-callback:0,
-*/
 var shipitDeploy = require('shipit-deploy');
 var chalk = require('chalk');
 
@@ -24,7 +18,7 @@ function shipitFunction(shipit) {
     production: {
       servers: [{
         host: 'api.devents.noders.com',
-        user: 'root',
+        user: 'root',º
       }],
     },
     development: {

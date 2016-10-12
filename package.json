@@ -20,6 +20,7 @@
     ]
   },
   "dependencies": {
+    "babel-preset-es2015": "6.14.0",
     "babel-register": "6.14.0",
     "chalk": "1.1.3",
     "cors": "2.8.1",
@@ -27,20 +28,20 @@
     "debug": "2.2.0",
     "express": "4.14.0",
     "express-graphql": "0.5.4",
+    "flightplan": "0.6.14",
     "graphql": "0.7.0",
-    "mongodb": "2.2.10",
-    "shipit": "1.0.2",
-    "shipit-cli": "1.4.1",
-    "shipit-deploy": "2.2.0"
+    "mongodb": "2.2.10"
   },
   "devDependencies": {
-    "babel-eslint": "6.1.2",
+    "babel-cli": "6.16.0",
+    "babel-eslint": "7.0.0",
     "babel-preset-es2015": "6.14.0",
-    "eslint": "3.5.0",
-    "eslint-config-airbnb": "11.1.0",
-    "eslint-plugin-import": "1.15.0",
-    "eslint-plugin-jsx-a11y": "2.2.2",
-    "eslint-plugin-react": "6.2.2",
+    "eslint": "3.7.1",
+    "eslint-config-airbnb": "12.0.0",
+    "eslint-config-airbnb-base": "8.0.0",
+    "eslint-plugin-import": "2.0.1",
+    "eslint-plugin-jsx-a11y": "2.2.3",
+    "eslint-plugin-react": "6.4.1",
     "iron-node": "3.0.11",
     "nodemon": "1.10.2"
   },
@@ -48,7 +49,7 @@
     "dev": "NODE_ENV=development nodemon index.js",
     "iron-node": "NODE_ENV=development iron-node index.js",
     "build": "rimraf build && babel src -d build --source-maps inline",
-    "deploy": "",
+    "deploy": "fly production --flightplan deploy/index.js",
     "start": "NODE_ENV=production node index.js"
   },
   "keywords": [],
