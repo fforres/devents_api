@@ -16,7 +16,7 @@ before_deploy:
 - ls -al
 - npm run build
 - mv $TRAVIS_BUILD_DIR/env.prod.json $TRAVIS_BUILD_DIR/build/env/env.prod.json
-- tar czf deploy.tar.gz $TRAVIS_BUILD_DIR/build
+- tar czf deploy.tar $TRAVIS_BUILD_DIR/build
 - eval "$(ssh-agent -s)"
 - mv $TRAVIS_BUILD_DIR/devents_prod_api_key /tmp/devents_prod_api_key
 - chmod 600 /tmp/devents_prod_api_key

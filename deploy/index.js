@@ -26,7 +26,7 @@ plan.local((local) => {
 // run commands on the target's remote hosts
 plan.remote((remote) => {
   remote.log('Move folder to web root');
-  remote.sudo(`cp -R /tmp/${tmpDir} ~`, { user: 'root' });
+  remote.sudo(`tar -xvf /tmp/${tmpDir} ~`, { user: 'root' });
   remote.rm(`-rf /tmp/${tmpDir}`);
 
   remote.log('Install dependencies');
