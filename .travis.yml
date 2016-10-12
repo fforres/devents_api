@@ -17,10 +17,9 @@ before_deploy:
 - mv $TRAVIS_BUILD_DIR/env.prod.json $TRAVIS_BUILD_DIR/build/env/env.prod.json
 - eval "$(ssh-agent -s)"
 - mv $TRAVIS_BUILD_DIR/devents_prod_api_key /tmp/devents_prod_api_key
+- mv $TRAVIS_BUILD_DIR/devents_prod_api_key.pub /tmp/devents_prod_api_key.pub
 - chmod 600 /tmp/devents_prod_api_key
 - ssh-add /tmp/devents_prod_api_key
-- rm $TRAVIS_BUILD_DIR/devents_prod_api_key
-- rm $TRAVIS_BUILD_DIR/devents_prod_api_key.pub
 - tar czf /tmp/deploy.tar.gz $TRAVIS_BUILD_DIR
 - ls -al /tmp
 deploy:
