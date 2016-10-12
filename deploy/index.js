@@ -1,7 +1,9 @@
 const plan = require('flightplan');
+const path = require('path');
 
 const appName = 'API_DEVENTS';
 const tmpDir = `${appName}-${new Date().getTime()}`;
+
 
 // configuration
 plan.target('production', [
@@ -16,7 +18,7 @@ plan.target('production', [
 // run commands on localhost
 plan.local((local) => {
   local.log('Copy files to remote hosts');
-  const filesToCopy = [`${process.cwd()}/deploy.tar`];
+  const filesToCopy = [path.normalize([`${process.cwd()}/../deploy.tar`])];
   // rsync files to all the target's remote hosts
   local.transfer(filesToCopy, `/tmp/${tmpDir}`);
 });
