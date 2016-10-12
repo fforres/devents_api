@@ -7,12 +7,15 @@ node_js:
 - 6
 addons:
   ssh_known_hosts: api.devents.noders.com
-before_deploy:
+before_install:
+- openssl aes-256-cbc -K $encrypted_5ae61cbbaac1_key -iv $encrypted_5ae61cbbaac1_iv
+  -in secrets.tar.enc -out secrets.tar -d
+after_install:
 - tar -xvf secrets.tar
-- ls -al
-- pwd
+- npm run build
 - mv $TRAVIS_BUILD_DIR/env.prod.json $TRAVIS_BUILD_DIR/src/env/env.prod.json
 - mv $TRAVIS_BUILD_DIR/env.prod.json $TRAVIS_BUILD_DIR/build/env/env.prod.json
+before_deploy:
 - eval "$(ssh-agent -s)"
 - mv $TRAVIS_BUILD_DIR/devents_prod_api_key /tmp/devents_prod_api_key
 - chmod 600 /tmp/devents_prod_api_key
@@ -20,16 +23,13 @@ before_deploy:
 deploy:
   provider: script
   skip_cleanup: true
-  script: npm run build && npm run deploy
+  script: npm run deploy
   on:
     branch: master
-before_install:
-- openssl aes-256-cbc -K $encrypted_5ae61cbbaac1_key -iv $encrypted_5ae61cbbaac1_iv
-  -in secrets.tar.enc -out secrets.tar -d
 after_deploy:
-- rm devents_prod_api_key
+- echo "--------- AFTER DEPLOY ---------"
 after_script:
-- echo "--------- DEPLOY DONE! ---------"
+- echo "--------- AFTER SCRIPT ---------"
 dd:
 - openssl aes-256-cbc -K $encrypted_5ae61cbbaac1_key -iv $encrypted_5ae61cbbaac1_iv
   -in env.prod.json.enc -out ./src/env/env.prod.json -d
