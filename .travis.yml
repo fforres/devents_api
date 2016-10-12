@@ -12,6 +12,7 @@ before_install:
   -in secrets.tar.enc -out secrets.tar -d
 before_deploy:
 - tar -xvf secrets.tar
+- echo $TRAVIS_BUILD_DIR
 - ls -al
 - npm run build
 - mv $TRAVIS_BUILD_DIR/env.prod.json $TRAVIS_BUILD_DIR/src/env/env.prod.json
